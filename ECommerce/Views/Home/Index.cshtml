@@ -1,0 +1,128 @@
+﻿@section Scripts {
+    @Scripts.Render("~/bundles/app")
+}
+
+<script type="text/javascript">
+        function getParameterByName(name) {
+            name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+            var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+                results = regex.exec(location.search);
+            return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+        }
+
+        window.onload = function () {
+
+            $.ajax({
+                type: 'GET',
+                url: '/api/Catalog/GetAllProducts'
+            }).done(function (data) {
+                alert(JSON.stringify(data));
+            });
+
+            //var code = getParameterByName('code');
+            //var state = getParameterByName('state');
+
+            //if (code != null && code !== "") {
+            //    var data = {
+            //        Code: code
+            //    };
+
+            //    $.ajax({
+            //        type: 'POST',
+            //        url: '/api/Account/WeChatOAuth2',
+            //        contentType: 'application/json; charset=utf-8',
+            //        data: JSON.stringify(data)
+            //    }).done(function (data) {
+            //        try {
+            //            alert(data);
+
+            //            var jsonObj = JSON.parse(data);
+
+            //            if (jsonObj.access_token != undefined && jsonObj.userName != undefined) {
+            //                alert(jsonObj.userName + ": You have logged into our site successfully!");
+            //            }
+            //        } catch (mesage) {
+            //            alert(message);
+            //        }
+            //    });
+            //}
+        }
+    </script>
+
+@*<div class="row">
+    <div class="col-sm-4">
+        <form data-bind="submit: callApi">
+            <h3>Invoke API</h3>
+            <div class="form-group">
+                <label>User</label>
+                <input class="form-control" type="text" readonly data-bind="value: user" />
+            </div>
+            <div class="form-group">
+                <label>Result</label>
+                <input class="form-control" type="text" readonly data-bind="value: result" />
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-default">Call API</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="col-sm-4">
+        <form data-bind="submit: register">
+            <h3>Register</h3>
+            <div class="form-group">
+                <label>Email</label>
+                <input class="form-control" type="text" data-bind="value: registerEmail" />
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                <input class="form-control" type="password" data-bind="value: registerPassword" />
+            </div>
+            <div class="form-group">
+                <label>Confirm Password</label>
+                <input class="form-control" type="password" data-bind="value: registerPassword2" />
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-default">Register</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="col-sm-4">
+        <h3>Log In</h3>
+        <form data-bind="submit: login">
+            <div class="form-group">
+                <label>Email</label>
+                <input class="form-control" type="text" data-bind="value: loginEmail" />
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                <input class="form-control" type="password" data-bind="value: loginPassword" />
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-default">Log In</button>
+                <button data-bind="click: logout" class="btn btn-default">Log Out</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-sm-4">
+        <form data-bind="submit: getAllUsers">
+            <h3>Invoke API</h3>
+            <div class="form-group">
+                <label>User</label>
+                <input class="form-control" type="text" readonly data-bind="value: user" />
+            </div>
+            <div class="form-group">
+                <label>Result</label>
+                <input class="form-control" type="text" readonly data-bind="value: result" />
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-default">Call API</button>
+            </div>
+        </form>
+    </div>
+</div>*@
